@@ -18,16 +18,15 @@ const buttonsText = [
 const ScreenSleepStrugglingPeriod = () => {
 	const [clickedButtonId, setClickedButtonId] = useState(0);
 	const navigate = useNavigate();
-	const nickname = JSON.parse(localStorage.getItem('user'));
 
 	const nextButtonClicked = async () => {
 		try {
+			const nickname = JSON.parse(localStorage.getItem('user'));
 			const textToupdate = buttonsText[clickedButtonId - 1].text;
 			const res = await API_REQUEST_URL.put(
 				'/user/sleep-struggling-period',
 				{ nickname, textToupdate }
 			);
-			console.log(res.data);
 			navigate(res.data.redirectUrl);
 		} catch (error) {
 			console.log(error);

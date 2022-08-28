@@ -11,12 +11,12 @@ const ScreenLogin = () => {
 	const nicknameChangeHandler = (e) => {
 		setNickname(e.target.value);
 	};
-	
+
 	const nextButtonClicked = async () => {
 		try {
-			const res = await API_REQUEST_URL.post('/user', {nickname});
+			const res = await API_REQUEST_URL.post('/user', { nickname });
 			localStorage.setItem('user', JSON.stringify(nickname));
-			navigate(res.data.redirectUrl)
+			navigate(res.data.redirectUrl);
 		} catch (error) {
 			console.log(error);
 		}
@@ -40,7 +40,7 @@ const ScreenLogin = () => {
 					/>
 				</div>
 			</div>
-			<div className={!nickname && ScreenStyles.hide_element}>
+			<div className={!nickname ? ScreenStyles.hide_element : undefined}>
 				<DownArrowButton nextScreen={nextButtonClicked} />
 			</div>
 			<div className={ScreenStyles.acknowledge_container}>

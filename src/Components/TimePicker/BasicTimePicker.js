@@ -4,7 +4,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useState } from 'react';
 
-export const BasicTimePicker = () => {
+export const BasicTimePicker = ({changeTimeHandler}) => {
 	const [value, setValue] = useState(null);
 	return (
 		<LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -12,7 +12,8 @@ export const BasicTimePicker = () => {
 				label="Select a time"
 				value={value}
 				onChange={(newValue) => {
-					setValue(newValue.date.h);
+					setValue(newValue.format());
+					changeTimeHandler(value);
 				}}
 				renderInput={(params) => (
 					<TextField

@@ -20,7 +20,7 @@ const App = () => {
 						element={<ScreenBedTimeStart />}
 					/>
 					<Route path="bed-time-end" element={<ScreenBedTimeEnd />} />
-					<Route path="sleep-hours" element={<ScreenSleepHours />} />
+					<Route path="sleep-efficiency" element={<ScreenSleepHours />} />
 				</Routes>
 			</Router>
 		</div>
