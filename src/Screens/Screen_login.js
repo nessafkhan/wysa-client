@@ -4,7 +4,6 @@ import DownArrowButton from '../Components/DownArrowButoon/DownArrowButton';
 import ScreenStyles from './Screen.module.css';
 import { useNavigate } from 'react-router-dom';
 import { API_REQUEST_URL } from '../config/axios.config';
-import { yellow } from '@mui/material/colors';
 
 const ScreenLogin = () => {
 	const [nickname, setNickname] = useState('');
