@@ -12,7 +12,7 @@ export const BasicTimePicker = () => {
 				label="Select a time"
 				value={value}
 				onChange={(newValue) => {
-					setValue(newValue);
+					setValue(newValue.date.h);
 				}}
 				renderInput={(params) => (
 					<TextField
@@ -20,7 +20,6 @@ export const BasicTimePicker = () => {
 						color="secondary"
 						fullWidth
 						size="medium"
-						
 						{...params}
 					/>
 				)}

@@ -3,15 +3,23 @@ import TextWrapper from '../Components/TextWrapper/TextWrapper';
 import DownArrowButton from '../Components/DownArrowButoon/DownArrowButton';
 import ScreenStyles from './Screen.module.css';
 import { useNavigate } from 'react-router-dom';
+import { API_REQUEST_URL } from '../config/axios.config';
 
 const ScreenLogin = () => {
-	const [inputValue, setInputValue] = useState('');
+	const [nickname, setNickname] = useState('');
 	const navigate = useNavigate();
-	const inputValueChangeHandler = (e) => {
-		setInputValue(e.target.value);
+	const nicknameChangeHandler = (e) => {
+		setNickname(e.target.value);
 	};
-	const nextButtonClicked = () => {
-		navigate('/sleep-struggling-period');
+	
+	const nextButtonClicked = async () => {
+		try {
+			const res = await API_REQUEST_URL.post('/user', {nickname});
+			localStorage.setItem('user', JSON.stringify(nickname));
+			navigate(res.data.redirectUrl)
+		} catch (error) {
+			console.log(error);
+		}
 	};
 	const text =
 		"Our conversations are private & anonymus, so there is no login. Just choose nick name we're good to go.";
@@ -27,12 +35,12 @@ const ScreenLogin = () => {
 						type="text"
 						placeholder="Choose a nickname..."
 						className={ScreenStyles.login_inputbox}
-						value={inputValue}
-						onChange={inputValueChangeHandler}
+						value={nickname}
+						onChange={nicknameChangeHandler}
 					/>
 				</div>
 			</div>
-			<div className={!inputValue && ScreenStyles.hide_element}>
+			<div className={!nickname && ScreenStyles.hide_element}>
 				<DownArrowButton nextScreen={nextButtonClicked} />
 			</div>
 			<div className={ScreenStyles.acknowledge_container}>

@@ -1,4 +1,3 @@
-import DownArrowButton from '../Components/DownArrowButoon/DownArrowButton';
 import TextWrapper from '../Components/TextWrapper/TextWrapper';
 import ScreenStyles from './Screen.module.css';
 
