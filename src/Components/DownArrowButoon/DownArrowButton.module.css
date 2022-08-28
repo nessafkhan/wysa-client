@@ -1,0 +1,12 @@
+.down_btn{
+    background-color: rgb(241, 187, 8);
+    border-radius: 50px;
+    height: 70px;
+    width: 70px;
+    padding: 10px;
+    color: #fff;
+    position: fixed;
+    bottom: 100px;
+    left: 40%;
+    cursor: pointer;
+}
