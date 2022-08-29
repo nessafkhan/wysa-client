@@ -27,7 +27,7 @@
 }
 .acknowledge_container{
     bottom: 5px;
-    position: absolute;
+    position: fixed;
     text-align: center;
     padding: 5px;
     margin: 0 10px;
