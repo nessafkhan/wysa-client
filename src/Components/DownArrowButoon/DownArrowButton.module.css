@@ -1,10 +1,10 @@
 .down_btn{
     background-color: rgb(241, 187, 8);
     border-radius: 50px;
-    height: 30px;
-    width: 30px;
-    padding: 10px;
+    height: 50px;
+    width: 50px;
     color: #fff;
+    margin: 10px;
     position: fixed;
     bottom: 100px;
     left: 40%;
