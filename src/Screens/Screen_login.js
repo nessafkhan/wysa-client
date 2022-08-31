@@ -59,7 +59,7 @@ const ScreenLogin = () => {
 					<span>Terms of Service</span> and{' '}
 					<span>Privacy Policy</span>{' '}
 				</p>
-				<p style={{ color: '#fbc02d', fontWeight: 300 }}>
+				<p style={{ color: '#fbc02d', marginBottom: '0px', fontWeight: 300 }}>
 					Please use in mobile view
 				</p>
 			</div>
