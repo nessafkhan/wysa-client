@@ -7,6 +7,7 @@ import { API_REQUEST_URL } from '../config/axios.config';
 
 const ScreenLogin = () => {
 	const [nickname, setNickname] = useState('');
+	const [error, setError] = useState('');
 	const navigate = useNavigate();
 	const nicknameChangeHandler = (e) => {
 		setNickname(e.target.value);
@@ -19,6 +20,7 @@ const ScreenLogin = () => {
 			navigate(res.data.redirectUrl);
 		} catch (error) {
 			console.log(error);
+			setError(error.response.data.message);
 		}
 	};
 	const text =
@@ -38,10 +40,18 @@ const ScreenLogin = () => {
 						value={nickname}
 						onChange={nicknameChangeHandler}
 					/>
+					<div
+						className={
+							!nickname ? ScreenStyles.hide_element : undefined
+						}
+					>
+						<DownArrowButton
+							nextScreen={nextButtonClicked}
+							loginButton={true}
+						/>
+					</div>
 				</div>
-			</div>
-			<div className={!nickname ? ScreenStyles.hide_element : undefined}>
-				<DownArrowButton nextScreen={nextButtonClicked} />
+				{error && <p className={ScreenStyles.error_msg}>{error}</p>}
 			</div>
 			<div className={ScreenStyles.acknowledge_container}>
 				<p className={ScreenStyles.acknowledge_text}>
